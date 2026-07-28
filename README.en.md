@@ -28,16 +28,31 @@ ResumeMD is a local Skill for AI agents such as Codex and Claude Code. The agent
   </tr>
 </table>
 
-## Ask your agent to install it
+<br>
 
-Paste this into Codex or Claude Code:
+<p align="center"><strong>✦ RECOMMENDED ✦</strong></p>
+
+<h2 align="center">One prompt. Let your agent install it.</h2>
+
+<p align="center">
+  <strong>No terminal. No commands to remember.</strong><br>
+  Paste the prompt below into Codex or Claude Code. It will install the Skill and run a rendering self-test.
+</p>
+
+<p align="center">
+  <kbd>Copy the prompt</kbd>
+  &nbsp;→&nbsp;
+  <kbd>Agent installs</kbd>
+  &nbsp;→&nbsp;
+  <kbd>Self-test passes</kbd>
+</p>
 
 ```text
 Install this project as a global Skill and complete one rendering self-test:
 https://github.com/beholder91/resume-md-skill
 ```
 
-Then ask naturally:
+<p align="center"><strong>Done. Give your agent a resume task:</strong></p>
 
 ```text
 Create a Chinese resume PDF from ./resume.pdf

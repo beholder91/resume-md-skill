@@ -28,16 +28,31 @@ ResumeMD 是给 Codex、Claude Code 等 AI Agent 使用的本地 Skill。Agent �
   </tr>
 </table>
 
-## 交给 Agent 安装
+<br>
 
-复制下面这句话给 Codex 或 Claude Code：
+<p align="center"><strong>✦ 推荐安装方式 ✦</strong></p>
+
+<h2 align="center">一句话，交给 Agent 安装</h2>
+
+<p align="center">
+  <strong>不用打开终端，不用记命令。</strong><br>
+  复制下面这段话给 Codex 或 Claude Code，它会自动安装并完成渲染自检。
+</p>
+
+<p align="center">
+  <kbd>复制提示词</kbd>
+  &nbsp;→&nbsp;
+  <kbd>Agent 自动安装</kbd>
+  &nbsp;→&nbsp;
+  <kbd>渲染自检通过</kbd>
+</p>
 
 ```text
 请安装这个项目为全局 Skill，并完成一次渲染自检：
 https://github.com/beholder91/resume-md-skill
 ```
 
-安装完成后直接说：
+<p align="center"><strong>安装完成。现在直接把任务交给 Agent：</strong></p>
 
 ```text
 根据 ./resume.pdf 输出一份中文简历 PDF
