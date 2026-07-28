@@ -1,0 +1,21 @@
+{
+  "name": "resume-md",
+  "interface": {
+    "displayName": "ResumeMD"
+  },
+  "plugins": [
+    {
+      "name": "resume-md",
+      "source": {
+        "source": "local",
+        "path": "./plugins/resume-md"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
+

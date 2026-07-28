@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resume-md"
+version = "0.1.0"
+description = "Chinese-first Markdown resume renderer for AI agents"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE", "licenses/*.txt"]
+authors = [{ name = "beholder91" }]
+keywords = ["resume", "markdown", "pdf", "weasyprint", "ai-agent"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+  "beautifulsoup4>=4.12,<5",
+  "fonttools>=4.50,<5",
+  "markdown-it-py>=3,<4",
+  "pypdf>=5,<7",
+  "typer>=0.12,<1",
+  "weasyprint>=62,<67",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+resume-md = "resume_md.cli:app"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+resume_md = ["themes/**/*.css", "themes/**/*.html", "themes/**/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["../../tests"]

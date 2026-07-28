@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: plugins/resume-md/pyproject.toml
+
+      - name: Install system dependencies
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            sudo apt-get update
+            sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 poppler-utils
+          else
+            brew install pango poppler
+          fi
+
+      - name: Install ResumeMD
+        run: python -m pip install -e 'plugins/resume-md[dev]'
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Validate Claude Code plugin and marketplace
+        run: |
+          npx -y @anthropic-ai/claude-code plugin validate plugins/resume-md
+          npx -y @anthropic-ai/claude-code plugin validate .
+
+      - name: Validate Codex marketplace installation
+        shell: bash
+        env:
+          RESUME_CODEX_HOME: ${{ runner.temp }}/codex-home
+        run: |
+          mkdir -p "$RESUME_CODEX_HOME"
+          HOME="$RESUME_CODEX_HOME" npx -y @openai/codex \
+            plugin marketplace add "$GITHUB_WORKSPACE" --json
+          HOME="$RESUME_CODEX_HOME" npx -y @openai/codex \
+            plugin add resume-md@resume-md --json
+
+      - name: Render all examples
+        shell: bash
+        run: |
+          mkdir -p test/output test/poppler
+          for source in examples/*.md; do
+            name="$(basename "$source" .md)"
+            resume-md render "$source" --output "test/output/$name.pdf" --json
+          done
+          python tests/verify_pdfs.py test/output
+          for pdf in test/output/*.pdf; do
+            name="$(basename "$pdf" .pdf)"
+            pdftoppm -png -r 110 "$pdf" "test/poppler/$name"
+          done
+
+      - name: Exercise Apple PDFKit / CoreGraphics
+        if: runner.os == 'macOS'
+        run: swift tests/render_coregraphics.swift test/output test/coregraphics
+
+      - name: Test isolated installer workflow
+        shell: bash
+        env:
+          RESUME_TEST_HOME: ${{ runner.temp }}/resume-md-home
+        run: |
+          mkdir -p "$RESUME_TEST_HOME"
+          HOME="$RESUME_TEST_HOME" python \
+            plugins/resume-md/skills/resume-md/scripts/install.py \
+            --source "$GITHUB_WORKSPACE/plugins/resume-md" \
+            --json
+          HOME="$RESUME_TEST_HOME" \
+            "$RESUME_TEST_HOME/.local/bin/resume-md" render \
+            examples/zh-product-designer.md \
+            --output "$RESUME_TEST_HOME/resume.pdf" \
+            --json
+
+      - name: Upload rendered artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-md-${{ matrix.os }}
+          path: |
+            test/output
+            test/poppler
+            test/coregraphics
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,5 @@
+interface:
+  display_name: "ResumeMD"
+  short_description: "将中英文简历材料稳定排版为专业、自然分页的 PDF 文件"
+  default_prompt: "Use $resume-md to turn my resume materials into a polished PDF."
+

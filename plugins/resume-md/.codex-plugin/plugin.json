@@ -1,0 +1,36 @@
+{
+  "name": "resume-md",
+  "version": "0.1.0",
+  "description": "Turn resume materials into polished, deterministic Markdown and PDF files.",
+  "author": {
+    "name": "beholder91",
+    "url": "https://github.com/beholder91"
+  },
+  "homepage": "https://github.com/beholder91/resume-md",
+  "repository": "https://github.com/beholder91/resume-md",
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "markdown",
+    "pdf",
+    "chinese"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ResumeMD",
+    "shortDescription": "Beautiful resume PDFs from Markdown",
+    "longDescription": "Chinese-first, local Markdown resume rendering with natural pagination and deterministic PDF output.",
+    "developerName": "beholder91",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/beholder91/resume-md",
+    "defaultPrompt": [
+      "Use $resume-md to turn my resume materials into a polished PDF.",
+      "Use $resume-md to render this Markdown resume without changing its content."
+    ],
+    "brandColor": "#697C73"
+  }
+}
