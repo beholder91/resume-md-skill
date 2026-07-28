@@ -4,7 +4,7 @@
 
 **Give an AI agent your resume materials. Get polished Markdown and PDF.**
 
-[![CI](https://github.com/beholder91/resume-md/actions/workflows/ci.yml/badge.svg)](https://github.com/beholder91/resume-md/actions/workflows/ci.yml)
+[![CI](https://github.com/beholder91/resume-md-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/beholder91/resume-md-skill/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-697C73.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-697C73.svg)](https://www.python.org/)
 [![macOS & Linux](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-697C73.svg)](#limitations)
@@ -34,7 +34,7 @@ Paste this into Codex or Claude Code:
 
 ```text
 Install this project as a global Skill and complete one rendering self-test:
-https://github.com/beholder91/resume-md
+https://github.com/beholder91/resume-md-skill
 ```
 
 Then ask naturally:
@@ -54,22 +54,22 @@ content is ambiguous.
 ### Codex
 
 ```bash
-codex plugin marketplace add beholder91/resume-md
+codex plugin marketplace add beholder91/resume-md-skill
 codex plugin add resume-md@resume-md
 ```
 
 ### Claude Code
 
 ```bash
-claude plugin marketplace add beholder91/resume-md
+claude plugin marketplace add beholder91/resume-md-skill
 claude plugin install resume-md@resume-md
 ```
 
 Renderer-only installation:
 
 ```bash
-git clone https://github.com/beholder91/resume-md
-python3 resume-md/plugins/resume-md/skills/resume-md/scripts/install.py
+git clone https://github.com/beholder91/resume-md-skill
+python3 resume-md-skill/plugins/resume-md/skills/resume-md/scripts/install.py
 ~/.local/bin/resume-md doctor
 ```
 
@@ -131,4 +131,3 @@ python3 -m venv .venv
 ResumeMD uses the [MIT License](LICENSE). Downloaded Noto fonts use the
 [SIL Open Font License 1.1](plugins/resume-md/licenses/OFL-1.1.txt); see
 [Third-party notices](THIRD_PARTY_NOTICES.md).
-

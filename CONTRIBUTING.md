@@ -5,8 +5,8 @@
 ## 开发环境
 
 ```bash
-git clone https://github.com/beholder91/resume-md
-cd resume-md
+git clone https://github.com/beholder91/resume-md-skill
+cd resume-md-skill
 python3 -m venv .venv
 .venv/bin/pip install -e 'plugins/resume-md[dev]'
 .venv/bin/pytest -q
@@ -30,4 +30,3 @@ macOS 首次运行可能需要 `brew install pango poppler`；Ubuntu/WSL 需要
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   plugins/resume-md/skills/resume-md
 ```
-

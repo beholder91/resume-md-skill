@@ -5,8 +5,8 @@
   "author": {
     "name": "beholder91"
   },
-  "homepage": "https://github.com/beholder91/resume-md",
-  "repository": "https://github.com/beholder91/resume-md",
+  "homepage": "https://github.com/beholder91/resume-md-skill",
+  "repository": "https://github.com/beholder91/resume-md-skill",
   "license": "MIT",
   "keywords": [
     "resume",
@@ -15,4 +15,3 @@
     "chinese"
   ]
 }
-

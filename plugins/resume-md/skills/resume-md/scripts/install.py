@@ -15,7 +15,7 @@ import tempfile
 
 
 REPOSITORY_SOURCE = (
-    "git+https://github.com/beholder91/resume-md.git@main"
+    "git+https://github.com/beholder91/resume-md-skill.git@main"
     "#subdirectory=plugins/resume-md"
 )
 
