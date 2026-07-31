@@ -104,9 +104,10 @@ def ensure_font(
 def _font_face(kind: str, path: Path) -> str:
     family = _FONT_FILES[kind]["family"]
     uri = path.resolve().as_uri()
-    return (
+    return "\n".join(
         f'@font-face {{ font-family: "{family}"; src: url("{uri}") '
-        'format("truetype"); font-style: normal; font-weight: 100 900; }}'
+        f'format("truetype"); font-style: normal; font-weight: {weight}; }}'
+        for weight in (400, 500, 600, 700)
     )
 
 

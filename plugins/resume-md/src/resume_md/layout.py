@@ -30,10 +30,10 @@ class _LayoutValues:
 BASE_FONT = 10.5
 NATURAL = {
     DocumentLanguage.CHINESE: _LayoutValues(
-        10.5, 1.62, 16.5, 9.0, 3.2, 15.5, 29.0, 12.0, 10.6
+        10.5, 1.62, 16.5, 9.0, 3.2, 15.5, 29.0, 13.4, 11.4
     ),
     DocumentLanguage.ENGLISH: _LayoutValues(
-        10.5, 1.48, 14.5, 8.0, 2.8, 14.5, 28.0, 11.2, 10.4
+        10.5, 1.48, 14.5, 8.0, 2.8, 14.5, 28.0, 13.2, 11.7
     ),
 }
 
@@ -70,7 +70,7 @@ def _style(values: _LayoutValues) -> str:
         "headline-size": f"{values.font - 0.35:.4f}pt",
         "small-size": f"{values.font - 1.05:.4f}pt",
         "meta-size": f"{values.font - 0.85:.4f}pt",
-        "label-size": f"{values.font - 0.1:.4f}pt",
+        "label-size": f"{values.font - 0.35:.4f}pt",
         "section-top": f"{values.section:.4f}pt",
         "section-heading-bottom": f"{values.entry * 0.78:.4f}pt",
         "entry-head-bottom": f"{values.entry * 0.48:.4f}pt",

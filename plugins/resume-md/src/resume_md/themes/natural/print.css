@@ -66,12 +66,23 @@ html[lang="en"] h1 {
 }
 
 html[lang="en"] h2 {
-  letter-spacing: 0.09em;
+  letter-spacing: 0.065em;
 }
 
-html[lang="en"] h3,
+html[lang="en"] h3 {
+  font-weight: 700;
+  letter-spacing: -0.006em;
+  line-height: 1.24;
+}
+
 html[lang="en"] .headline {
   letter-spacing: 0;
+}
+
+html[lang="en"] .entry-label {
+  font-size: calc(var(--label-size) - 0.35pt);
+  font-weight: 500;
+  letter-spacing: 0.005em;
 }
 
 html[lang="en"] .resume-header {
@@ -142,7 +153,7 @@ h1 {
   padding-top: 3.5pt;
   color: var(--accent-deep);
   font-size: var(--headline-size);
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: 0.012em;
   line-height: 1.35;
 }
@@ -201,12 +212,14 @@ h2 {
   position: relative;
   string-set: resume-section content();
   margin-bottom: var(--section-heading-bottom);
+  padding-left: 6pt;
+  border-left: 2.2pt solid var(--accent);
   color: var(--accent-deep);
   font-family: var(--font-heading);
   font-size: var(--section-title-size);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.25;
+  letter-spacing: 0.055em;
+  line-height: 1.2;
   text-transform: uppercase;
   break-after: avoid-page;
 }
@@ -245,8 +258,8 @@ h3 {
   font-family: var(--font-heading);
   font-size: var(--entry-title-size);
   font-weight: 600;
-  letter-spacing: 0.006em;
-  line-height: 1.32;
+  letter-spacing: 0.002em;
+  line-height: 1.28;
 }
 
 .entry-meta {
@@ -260,10 +273,11 @@ h3 {
 .entry-label {
   margin-top: var(--label-top);
   margin-bottom: var(--label-bottom);
-  color: var(--ink);
+  color: var(--accent-deep);
   font-size: var(--label-size);
   font-weight: 600;
-  line-height: 1.35;
+  letter-spacing: 0.015em;
+  line-height: 1.32;
   break-after: avoid-page;
 }
 
